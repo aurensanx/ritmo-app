@@ -1,14 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
-  selector: 'app-time',
-  templateUrl: './time.component.html',
-  styleUrls: ['./time.component.scss'],
+    selector: 'app-time',
+    templateUrl: './time.component.html',
+    styleUrls: ['./time.component.scss'],
 })
 export class TimeComponent implements OnInit {
 
-  constructor() { }
+    distance: number;
+    pace: string;
+    result: string;
 
-  ngOnInit() {}
+    constructor() {
+      const currentDate = new Date();
+      this.pace = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()).toISOString();
+    }
+
+    ngOnInit() {
+    }
+
+    onChange() {
+        const date = new Date(this.pace);
+        const seconds = date.getMinutes() * 60 + date.getSeconds();
+        this.result = moment().startOf('day').add(this.distance * seconds, 'seconds').format('HH:mm:ss');
+    }
 
 }

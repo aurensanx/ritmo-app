@@ -1,3 +1,24 @@
-<p>
-  time works!
-</p>
+<ion-grid class="ion-margin">
+  <form>
+    <ion-item>
+      <ion-label position="floating">Distancia (kms)</ion-label>
+      <ion-input type="number" [(ngModel)]="distance" (ionBlur)="onChange()" name="distance"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ritmo (min/km)</ion-label>
+      <ion-datetime displayFormat="mm:ss" [(ngModel)]="pace" (ionBlur)="onChange()"
+                    name="time"></ion-datetime>
+    </ion-item>
+  </form>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Tiempo:</ion-label>
+      <ion-note slot="end">{{result}} hh:mm:ss</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-grid>
+
+
+
