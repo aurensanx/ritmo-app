@@ -23,7 +23,7 @@ export class PaceComponent implements OnInit {
     onChange() {
         const date = new Date(this.time);
         const seconds = date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
-        this.result = moment().startOf('day').add(seconds / this.distance, 'seconds').format('m:s.SSS');
+        this.result = moment().startOf('day').add(seconds / this.distance, 'seconds').format('mm:ss.SSS');
     }
 
 }
